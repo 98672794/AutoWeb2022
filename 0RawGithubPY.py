@@ -15,7 +15,7 @@ https://stackoverflow.com/questions/54963794/read-python-code-from-github-and-ex
 
 # -*- coding: UTF-8 -*-
 ##########################################################################import
-import os
+import ATWREADME
 import urllib.request
 
 ATW202202041958 = 'https://raw.githubusercontent.com/98672794/py/main/1index.py'
@@ -27,24 +27,20 @@ ATW202202041958 = 'https://raw.githubusercontent.com/98672794/py/main/1index.py'
 ###################################################################################
 ############################################################# 0RawGithubPY 說明
 def README(): 
-    print ("\n*** README ***\n")
-    t = [
+
+    ThisREADME = [
+        '*** 0RawGithubPY.README ***', # PYfileName
+        '執行在Github的PYRaw檔 =\n        執行GithubPYRaw(PYRaw網址)',
         ' ==== BUG ==== ',
         ' rwa不能import ',
         ' ==== BUG ==== ',
-        'mokaki',
-        'https://98672794.github.io/',
-        '202202042044',
         ' ==== 恭賀新禧 ==== ',
-        '0RawGithubPY.',
-        '執行在Github的PYRaw檔 =\n    執行GithubPYRaw(PYRaw網址)'
+        'mokaki202202051218',
+        'https://98672794.github.io/'
+
     ]
-    for txt in t:
-        print ("\n   ",txt,"\n")
-    print ("\n*** /README ***\n")
-    os.system("pause")
 
-
+    ATWREADME._READYourME(ThisREADME)
 
 
 
@@ -72,7 +68,7 @@ def 執行GithubPYRaw(PYRaw網址):
 if __name__ == "__main__":
     README()
     執行GithubPYRaw(ATW202202041958)
-    os.system("pause")
+    ATWREADME.os.system("pause")
     
     
 

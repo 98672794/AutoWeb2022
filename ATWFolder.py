@@ -15,30 +15,28 @@ https://98672794.github.io/
 # -*- coding: UTF-8 -*-
 
 
-import os
-
-
+import ATWREADME
 
 
 
 ###################################################################################
 ############################################################# ATWFolder說明
 def README(): 
-    print ("\n*** README ***\n")
-    t = [
-        'mokaki',
-        'https://98672794.github.io/',
-        '202202042044',
+
+    ThisREADME = [
+        '*** ATWFolder.README ***', # PYfileName
+        '_SetFolder(v1,sel) =\n        生成文件夾',
+        '_GetFolder() =\n        獲取檔案路徑和當前工作目錄',
+        '_MakeJobFolder(FolderName) =\n        在當前文件夾创工作目錄',
         ' ==== 恭賀新禧 ==== ',
-        'ATWFolder.',
-        '生成文件夾 =\n    _SetFolder(v1,sel)',
-        '獲取檔案路徑和當前工作目錄 =\n    _GetFolder()',
-        '在當前文件夾创工作目錄 =\n    _MakeJobFolder(FolderName)'
+        'mokaki202202051218',
+        'https://98672794.github.io/'
+
     ]
-    for txt in t:
-        print ("\n   ",txt,"\n")
-    print ("\n*** /README ***\n")
-    os.system("pause")
+
+    ATWREADME._READYourME(ThisREADME)
+
+
 
 
 
@@ -53,9 +51,9 @@ def _SetFolder(v1,sel):     #   (文件夾名,動作)
     # MakeFolder = MakeFolder
     if sel == 'MakeFolder':
         # 查 文件夾 在否       ./NOW
-        folder = os.path.exists(v1)
+        folder = ATWREADME.os.path.exists(v1)
         if not folder:
-            os.makedirs(v1)    # makedirs　文件夾不在创，在ＥＲＲＯＲ
+            ATWREADME.os.makedirs(v1)    # makedirs　文件夾不在创，在ＥＲＲＯＲ
             print ("\n*** 成功创建文件夾 ",v1," ***\n")
 
             #_AutoWebLanguageSetting("\n***!!成功创建文件夾!!!!!*****\n")
@@ -74,7 +72,7 @@ def _SetFolder(v1,sel):     #   (文件夾名,動作)
 
 def _GetFolder():
     # print ('_GetFolder')
-    NowFolder = (os.path.dirname(os.path.abspath(__file__)))
+    NowFolder = (ATWREADME.os.path.dirname(ATWREADME.os.path.abspath(__file__)))
 
     #print ('_GetFolder,',NowFolder)
     return NowFolder

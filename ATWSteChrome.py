@@ -49,6 +49,8 @@ from win32com import client as wincom_client
 
 
 import ATWFolder
+import ATWREADME
+
 
 
 
@@ -64,27 +66,21 @@ import ATWFolder
 ###################################################################################
 ############################################################# ATWSteChrome 說明
 def README(): 
-    print ("\n*** README ***\n")
-    t = [
-        'mokaki',
-        'https://98672794.github.io/',
-        '202202 ',
+
+    ThisREADME = [
+        '*** ATWSteChrome.README ***', # PYfileName
+        '打開chrome,冇去下 =\n        _SteChrome(chromedriverURL,ChromeSel)',
+        '自动下載最新 chromedriver =\n        _InputChromeAutoUpData(chromedriverURL)',
+        '_SeleniumHighlight =\n        _SeleniumHighlight(element, effect_time, color, border)',
+        'Loop 數 停 202111272338 =\n        _Loop數停(chrome號,點位,動作,入字)',
+        '登入whatsapp 202110230158 =\n        _LoginWhatsapp(ChromeSel,t1,sel)',
         ' ==== 恭賀新禧 ==== ',
-        'ATWSteChrome.',
-        '打開chrome,冇去下 =\n    _SteChrome(chromedriverURL,ChromeSel)',
-        '自动下載最新 chromedriver =\n    _InputChromeAutoUpData(chromedriverURL)',
-        '_SeleniumHighlight =\n    _SeleniumHighlight(element, effect_time, color, border)',
-        ' =\n    _',
-        ' =\n    _',
-        'Loop 數 停 202111272338 =\n    _Loop數停(chrome號,點位,動作,入字)',
-        '登入whatsapp 202110230158 =\n    _LoginWhatsapp(ChromeSel,t1,sel)'
+        'mokaki202202051218',
+        'https://98672794.github.io/'
+
     ]
-    for txt in t:
-        print ("\n   ",txt,"\n")
-    print ("\n*** /README ***\n")
-    os.system("pause")
 
-
+    ATWREADME._READYourME(ThisREADME)
 
 
 
