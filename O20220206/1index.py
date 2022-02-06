@@ -5,7 +5,7 @@ winpy3
 
 1index
 執行Github中的.py
-ATW202202061707
+ATW20220204
 mokaki
 https://98672794.github.io/
 
@@ -20,23 +20,6 @@ Start()-|
     -Er-|
     |
     _Error(e)
-
-
-
-
-
-
-
-_atw - |0.atw / coed
-       |--.py
-       |--.html
-       |--.job
-
-
-
-
-
-
 
 '''
 

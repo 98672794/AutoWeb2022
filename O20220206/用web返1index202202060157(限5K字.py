@@ -5,7 +5,7 @@ winpy3
 
 1index
 執行Github中的.py
-ATW202202061707
+ATW20220204
 mokaki
 https://98672794.github.io/
 
@@ -21,37 +21,21 @@ Start()-|
     |
     _Error(e)
 
-
-
-
-
-
-
-_atw - |0.atw / coed
-       |--.py
-       |--.html
-       |--.job
-
-
-
-
-
-
-
 '''
 
 # -*- coding: UTF-8 -*-
 ##########################################################################import
 
 import re
-from getpass import getpass # 填寫密匙時將不會顯示
 
 
 import ATWSteChrome
 import ATWFolder
 import ATWError
+import ATW_OUT
 import ATWREADME
-import ATW_LoginATW
+import ATWLanguage  # 翻譯 
+from getpass import getpass # 填寫密匙時將不會顯示
 
 
 
@@ -108,6 +92,8 @@ def Start():
             '                     其所有資產也將永遠消失 ',
             ' ****************************************** ',
             ' 您好 請填寫您的 密匙 再按ENTER ',
+        ]
+        Talk2 = [
             ' 為保您資產安全，填寫密匙時將不會顯示 ',
             ' ATW密文(0.atw)，必須存放在 _atw/0.atw ',
             ' ',
@@ -115,37 +101,44 @@ def Start():
             ' (任何字符) \n',
             '*** 最少8個字 ***\n'
         ]
+        
         # 翻譯 all Talk
-        #TalkToYou = ATWLanguage._AutoWeb翻譯功能(Talk,'en')    ##zh-Hant
+        TalkToYou = ATWLanguage._AutoWeb翻譯功能(Talk,'en')    ##zh-Hant
+
 
         while True: # 驗答 loop
-            for txt in Talk[0:-2]:
+            # 已轉言 TxtList loop print
+            for txt in TalkToYou:
                 print (txt)
-            UserKey = getpass(prompt=Talk[-2]) # 寫密匙時將不會顯示
-            # 少於8個字
-            if len(UserKey) < 8:
-                print(Talk[-1])
-                continue    # 回驗答 loop
-            break
 
+            TalkToYou2 = ATWLanguage._AutoWeb翻譯功能(Talk2,'en')
+            for txt in TalkToYou2[0:-2]:
+                print (txt)
+
+
+            UserKey = getpass(prompt=TalkToYou2[-2]) # 寫密匙時將不會顯示
+
+            if UserKey == '0':
+                # 0 = 新用戶修改語言
+                新言 = ATWLanguage._AutoWebChangeLanguage()   # 新言 = 目標語言
+                TalkToYou = ATWLanguage._AutoWeb翻譯功能(Talk,新言)
+                TalkToYou2 = ATWLanguage._AutoWeb翻譯功能(Talk,新言)
+                continue    # 回驗答 loop
+            else:
+                # 少於8個字
+                if len(UserKey) < 8:
+                    print(TalkToYou2[-1])
+                    continue    # 回驗答 loop
+            break
 
         #### ./ 在當前文件夾创工作目錄 if not ####
         NowJobFolder = ATWFolder._MakeJobFolder(密匙檔路徑)
         # NowJobFolder = 文件夾 全路徑
 
-
-
-
-        print('qqqqqqqqqqqq=')
-        # 登入ATW
-        ATW_LoginATW._LoginATW('ATWKeyname-@=',UserKey,NowJobFolder)     
-        #   (v1,ATW密匙),sel,_UnLockATWv1,_UnLockATWv2,_UnLockATWsel)
-
-        #########if YouAcTo == 'NewAc':
-
-        print('qqqqqqqqqqqq=')
+        print('新言=',新言)
         ATWREADME.os.system("pause")
-
+        # 登入ATW
+        #_LoginATW('ATWKeyname-@=',UserKey)     #   (v1,ATW密匙),sel,_UnLockATWv1,_UnLockATWv2,_UnLockATWsel)
         # Goto _index
         #_index(UnLockData)
 
