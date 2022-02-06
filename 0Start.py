@@ -1,54 +1,213 @@
-#2SelePage.py
+
+
+'''
+winpy3
+
+0Start
+runThe.py
+ATW202202061852
+mokaki
+https://98672794.github.io/
+
+
+README()
+
+Start()-|
+        |
+        |-ifUser--autoRun
+        |-hv_atw----index
+        |-not-----makeAcc
+    -Er-|
+    |
+    _Error(e)
+
+
+
+
+
+
+
+_atw - |0.atw / coed
+       |--.py
+       |--.html
+       |--.job
+
+
+
+
+
+
+
+'''
+
+
+
+
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
 import os 
-from tkinter import *
-from functools import partial
 
 
 
-name = input('招財酒吧管理系統 歡迎您')
-name000000 = "python "
-name011111 = "./"
-name022222 = ".py"
-name033333 = ((name011111 + name + name022222))
-
-def ATW202106162343():
-	os.system("python ./1index.py")
-	return
-
-def 自動抄波():
-	os.system("python ./1index202202060157(限5K字.py")
-	return
-
-def 自動播歌():
-	os.system("python ./自動播歌.py")
-	return
-
-def aaaaaa1111111111():
-	os.system((name000000 + name033333))
-	return
 
 
+##################################################
+############### 開始執行同層的py檔 0Start.RunThePY()
+def RunThePY():
 
-#window
-tkWindow = Tk()  
-tkWindow.geometry('400x150')  
-tkWindow.title('招財酒吧管理系統 請選擇功能 ')
+    # 預設run
+    BasePY = 'ATWError'
 
-#自動發廣告
-loginButton = Button(tkWindow, text="1index", command=ATW202106162343).grid(row=1, column=1)  
+    # 說明
+    Talk = [
+        ' Start.RunThePY()  ',
+        ' 開始執行同層的py檔  ',
+        ' ======== ',
+        ' 限同層 = 只檔名 ',
+        ' ======== ',
+        ' 請填寫同層的py檔名'
+    ]
+    for txt in Talk:
+        print (txt)
 
-#自動抄波
-loginButton2 = Button(tkWindow, text="1index202202060157(限5K字", command=自動抄波).grid(row=2, column=2)  
+    # 入py名
+    PYname = input('\n')
+    if PYname == '':
+        PYname = BasePY
+    
+    # 轉全名.py
+    dd = [
+        "python ",
+        "./",
+        ".py"
+        ]
+    print ('開始執行',PYname,dd[2])
+    NowRunThisPY = ((dd[1] + PYname + dd[2]))
 
-#自動播歌
-loginButton3 = Button(tkWindow, text="自動播歌", command=自動播歌).grid(row=3, column=3)  
+    # Run py
+    os.system((dd[0] + NowRunThisPY))
 
-#自定義
-loginButton4 = Button(tkWindow, text=str(name), command=aaaaaa1111111111).grid(row=9, column=9)  
+    return PYname
 
-tkWindow.mainloop()
 
-os.system("pause")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################################
+############### 請選擇功能 0Start.Start()
+def Start():
+    #print ('開始執行_Start')
+
+    # 說明
+    Talk = [
+        '\n   =========== AutoWeb index 歡迎您 ===========',
+        '\n   請選擇功能\n',
+        '\n   0 ====== RunThePY\n   開始執行同層的py檔\n',
+        '\n   ===========================================',
+        '\n   0 ====== Auto Setting\n   修改您的資料\n',
+        '\n   1 ====== Auto pip Import\n   自动安装所需的Python依赖包（pip install 包）\n',
+        '\n   2 ====== Auto WebPage template\n   自動下載mobanwang網頁模板(XXX維護中XXX)\n',
+        '\n   3 ====== Auto Sales\n   自動搵客，自動獲取工作相關的廣告資料\n',
+        '\n   4 ====== Auto chromedriver\n   自动下載最新 chromedriver\n',
+        '\n   5 ====== VIP KEY[ADMIN]\n   自动生成VIP驗證碼\n',
+        '*** 只可填寫數字 ***\n'
+    ]
+
+    # Goto Fun loop 
+    while True:
+        print ('loop  Start')
+
+        # 只可填寫數字
+        try:
+            for txt in Talk[0:-2]:
+                print (txt)        # 說明
+            Goto = int(input())
+            pass    # 下步
+        except:
+            print(Talk[-1])
+            continue    # 回 Goto Fun loop 
+
+        ################################## Sel 0  開始執行同層的py檔  
+        if Goto == 0:
+            print ('********** Sel 0 *************') 
+            print (' / END',RunThePY(),'.py')
+            print ('********** /Sel 0 *************') 
+            continue    # 回 Goto Fun loop 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def _Error(e):
+    #print(e)
+    #print(e.__traceback__.tb_frame.f_globals["__file__"])   # 发生异常所在的文件
+    #print(e.__traceback__.tb_lineno)                        # 发生异常所在的行数
+
+    异常 = 'Error***'
+    + (e.__traceback__.tb_frame.f_globals["__file__"])   # 发生异常所在的文件
+    +(e.__traceback__.tb_lineno)                        # 发生异常所在的行数
+    +'***'
+    
+    return 异常
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    Start()
+    os.system("pause")
+
+
+
+
+
