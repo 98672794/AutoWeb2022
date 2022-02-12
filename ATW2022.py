@@ -165,12 +165,11 @@ ATWOwnFBGroups = 'groups/186019250178867'
 # AutoWeb 2022 入口 setKeyFolder 填寫ATW密匙    ################################
 def _2022_ATW_0_Start_2022ToATW2022InputData(Start2022KeyFolderName): 
     global KeyFolder
+    global KeyUrl
     
     try:
-
         KeyFolder = Start2022KeyFolderName
-        #print('KeyFolder=',KeyFolder)
-        #_OUT()
+        KeyUrl = Start2022KeyFolderName + '/0.atw'  #AutoWeb/0.atw
         NowKO = InputData()
     except Exception as e:
         for 异常 in ATWError._Error(e):
@@ -235,8 +234,6 @@ KeyUrl = KeyFolder + '/0.atw'  #AutoWeb/0.atw
 def InputData():  # InputData(密匙檔路徑2022)
     global KeyFolder
     global UserLanguage
-    # 0Start2022 
-    #KeyFolder = 密匙檔路徑2022
 
     _AutoWebLanguageSetting(talk8)
     print(LanguageText)
@@ -513,7 +510,7 @@ def _AutoWebKeySetting(ATWKeyName,ATWKeyVlo,UserKey):
 
             # 0======退出_AutoWWebSetting
             if AutoWWebSettingInput == '0':
-                InputData()
+                InputData()   # QQQQQQQQQQQQ 
 
 
 

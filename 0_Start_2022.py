@@ -14,7 +14,7 @@ import ATW2022
 #import ATW_OUT
 #import ATWREADME
 import ATWLanguage  # 翻譯 
-
+import ATW自動下載模板2022  # 自動下載 MoBanWang 網頁模板 
 
 
 
@@ -95,7 +95,7 @@ def Start2022():
     try:
         #print('0_Start_2022=202202121828')
         d = ATW2022._2022_ATW_0_Start_2022ToATW2022InputData(KeyFolderName)
-        _index(d[0],d[1])
+        _index(d[0],d[1],KeyFolderName)
     except Exception as e:
         for 异常 in ATWError._Error(e):
             print(异常)
@@ -144,7 +144,7 @@ def Start2022():
 
 
 Loop_AutoWWebSales = 0
-def _index(v1,BassLan): 
+def _index(v1,BassLan,KeyFolderName): 
     #global Loop_AutoWWebSales
     #BassLan = 'zh-Hant'
 
@@ -153,10 +153,10 @@ def _index(v1,BassLan):
     AutoWe index 歡迎您 
     請選擇功能
 
-    0 ====== Auto Setting OK\n       修改您的資料
+    0 ====== Auto Setting \n       修改您的資料
         ===
-    2 ====== Auto WebPage template\n       自動下載mobanwang網頁模板(XXX維護中XXX)
-    3 ====== Auto Get Job 2021 OK\n       自動獲取FACEBOOK公開群的相關廣告資料
+    2 ====== Auto WebPage template\n       自動下載mobanwang網頁模板
+    3 ====== Auto Get Job 2021 \n       自動獲取FACEBOOK公開群的相關廣告資料
         ===
         /****************
     '''
@@ -180,16 +180,15 @@ def _index(v1,BassLan):
                 except:
                     print(ATWLanguage._AutoWeb翻譯功能('只可填寫數字',BassLan))
                     continue
+
                 if sel_AutoWebSetting == 0:
                     # 0 = 新用戶修改語言
                     新言 = ATWLanguage._AutoWebChangeLanguage(BassLan)   # 新言 = 目標語言
                     BassLan = 新言
-
                     # Start 轉 ATW2022 Language
                     print(ATW2022._2022_ATW_0_Start_2022ToATW2022bLanguageSetting(BassLan))
-                    print(' Start 轉 ATW2022 Language 奉qqqq')
-
                     break
+
                 if sel_AutoWebSetting == 1:
                     ATW2022._AutoWebKeySetting('','',v1)    #奉qqqqqqqqqqqqqqqqqqqq
                 else:
@@ -202,18 +201,19 @@ def _index(v1,BassLan):
 
         if Goto == 2:
             #自動下載 MoBanWang 網頁模板
-            print('Auto WebPage template 2021')
-            print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板\n   維護中。。。',BassLan))
-            continue
+            print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板',BassLan))
+            OK = ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022(KeyFolderName)   
+            print('------------ 模板',OK,'已自動下載完成 ------------------\n') 
 
         if Goto == 3:
             # AutoWeb Auto Get Job
-            print('Auto Get Job 2021')
+            print('qqqqqqqqqqq')
             print(ATWLanguage._AutoWeb翻譯功能('自動搵客，自動獲取FACEBOOK公開群的相關廣告資料',BassLan))
             # 驗證登入
             #UserKey = getpass(prompt=talk2+talk1+talk7)
             Loop_AutoWWebSales = 0
-            ATW2022._AutoWWebSales(v1)    #奉qqqqqqqqqqqqqqqqqqqq
+            ATW2022._AutoWWebSales(v1)  
+            print('------------ / 自動搵客2022 ------------------\n')  
     
         continue    # 回歡迎您
 

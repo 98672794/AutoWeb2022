@@ -38,17 +38,40 @@ from fontTools.ttLib import TTFont
 
 
 
+# 2022 ########################################################################
+###############################################################################
+import ATWError
+# AutoWeb 2022 start to  ATW自動下載模板2022   ################################
+def _2022_ATW_0_Start_2022ToATW自動下載模板2022(NowFolderName): 
+    global template
+    try:
+        template = NowFolderName + '/_ATWhtml/'     # ../_ATWhtml/ 模板存檔位置
+        _SeeHTML()
+        while True: #   等 自下run end
+            if OutThis == 'END':
+                NowKO = htmlname
+                break
 
+    except Exception as e:
+        for 异常 in ATWError._Error(e):
+            print(异常)
+        NowKO = 'Error'
+    # /
+    return NowKO
 
+OutThis = 0 
+def _EndThisPY(n):
+    global OutThis
+    OutThis = n
 
 
 
 
 
 ##############################################################################Data
-template = '../template/'                                             #模板存檔位置
+template = '_ATWhtml/'                              # ../_ATWhtml/ 模板存檔位置
 selTimeBTN = 0                       #各FUN用計時退出選擇 0 = 下載完 1 = 自己加入FUN
-htmlname = '18353'                                                    #模板的尾數
+htmlname = '18644'                                                    #模板的尾數
 htmlname1 = htmlname + ".rar"                                          #模板rer名
 url = 0                                                                  #選下URL
 #########################################################################選下載檔
@@ -60,17 +83,14 @@ def _SeeHTML():
     print('```````````````````````````請選下載檔\n')
     if selBTN == 0:
         os.system('start chrome {}'.format('http://www.mobanwang.com/'))
-    htmlname = input('請填寫模板的尾數,如'+ htmlname +'\n')
-    if htmlname == '':
-        print('沒有模板尾數,將自動下載模 18350 \n')
-        htmlname = '18350'
+
+    print('如沒有模板尾數,將自動下載模 ',htmlname,' \n')
+    htmlname2 = input('請填寫模板的尾數,如'+ htmlname +'\n')
+    if htmlname2 :
+        htmlname = htmlname2
     htmlname1 = htmlname+".rar"
     url = 'http://www.mobanwang.com/mb/showsoftdown.asp?urlid=1&softid=' + htmlname
     _MakdFolder()
-
-
-
-
 
 
 
@@ -406,7 +426,7 @@ def _ChangeCopyright():                                                         
     n2 = 'Colorlib'
     u2 = 'https://colorlib.com'
 
-    print('------------開始版權資料!!\n')
+    print('------------開始版權資料!!\n 部份版模不成XXX')
 
     CN = input('請填寫版权所有者，如沒有將使用 mokaki。\n')                                         #輸入版权所有者
     if CN == '':                                                                                       #如沒輸入
@@ -450,9 +470,8 @@ def _ChangeCopyright():                                                         
 
     print('\n',htmlname,'已修改\n版权所有者:',CN,'\n版权網址:',CU,'\n')
     print('------------------------------\n')
-    
-    # 2022
-    # _OUT()
+    # 2022 _OUT()
+    _EndThisPY('END')
 
 
 
