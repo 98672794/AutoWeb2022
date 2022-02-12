@@ -110,7 +110,7 @@ from deep_translator import (GoogleTranslator,PonsTranslator,LingueeTranslator,M
 
 # ATW2022
 import ATWLanguage  # 翻譯 
-
+import ATWError
 
 
 
@@ -159,6 +159,53 @@ ATWOwnFBGroups = 'groups/186019250178867'
 
 
 
+# 2022 ########################################################################
+###############################################################################
+
+# AutoWeb 2022 入口 setKeyFolder 填寫ATW密匙    ################################
+def _2022_ATW_0_Start_2022ToATW2022InputData(Start2022KeyFolderName): 
+    global KeyFolder
+    
+    try:
+
+        KeyFolder = Start2022KeyFolderName
+        #print('KeyFolder=',KeyFolder)
+        #_OUT()
+        NowKO = InputData()
+    except Exception as e:
+        for 异常 in ATWError._Error(e):
+            print(异常)
+        NowKO = 'Error'
+    # /
+    return NowKO
+
+
+
+
+
+# 翻譯功能 0_Start_2022 to ATW2022 ###########################################
+def _2022_ATW_0_Start_2022ToATW2022bLanguageSetting(新言): 
+    global UserLanguage
+    UserLanguage = 新言
+    return 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -177,7 +224,7 @@ talk6 = '      因ATW密匙、ATW密文一旦丟失將永不能復原，\n      
 
 talk1 = '  ===== 您好 請填寫您的 ATW密匙 再按 ENTER =====\n   (任何字符)\n\n'
 talk7 = '   為保您資產安全，填寫密匙時將不會顯示   \n'
-talk8 = 'AutoWeb 歡迎您```````````\n*** just for WINDOWS OS ***\n'
+talk8 = 'AutoWeb 2022 歡迎您\n*** just for WINDOWS OS ***\n'
 talk9 = '*** 只可填寫數字 ***\n'
 talk10 = '\n   0 === Translation language (原文:zh-Hant) \n'
 talk11 = '*** 最少8個字 ***\n'
@@ -619,12 +666,6 @@ def _AutoWebLanguageSetting(uk):
             LanguageText = uk
 
 
-
-# 翻譯功能 0_Start_2022 to ATW2022 ##########################################################################
-def _2022_ATW_0_Start_2022ToATW2022bLanguageSetting(新言): 
-    global UserLanguage
-    UserLanguage = 新言
-    return 
 
 
 
@@ -1189,6 +1230,26 @@ def read_json(file_path):
 
 
 
+
+'''
+
+       /\          /\          /\
+    /\//\\/\    /\//\\/\    /\//\\/\
+ /\//\\\///\\/\//\\\///\\/\//\\\///\\/\
+//\\\//\/\\///\\\//\/\\///\\\//\/\\///\\
+\\//\/                            \/\\//
+ \/                                  \/
+ /\                                  /\
+//\\         _AutoWWebSales         //\\
+\\//                                \\//
+ \/                                  \/
+ /\                                  /\
+//\\/\                            /\//\\
+\\///\\/\//\\\///\\/\//\\\///\\/\//\\\//
+ \/\\///\\\//\/\\///\\\//\/\\///\\\//\/
+    \/\\//\/    \/\\//\/    \/\\//\/
+       \/          \/          \/
+'''
 
 
 

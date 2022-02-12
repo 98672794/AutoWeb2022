@@ -44,7 +44,7 @@ def README():
         ' ********* / 用 *********** '
     ]
 
-    ATWREADME._READYourME(ThisREADME)
+    print(ThisREADME)
 
 
 
@@ -59,19 +59,15 @@ def README():
 
 
 def _Error(e):
-
     # 翻譯
     #t1 = ATWLanguage._AutoWeb翻譯功能(e,'zh')    ## zh-Hant
     异常 = [
-        'Error=',
-        e,      # t1
-        '\nin=',
-        e.__traceback__.tb_frame.f_globals["__file__"],
-        e.__traceback__.tb_lineno,
-        '\n'
+        '========= _Error ===========',
+        e,      # Error說明,
+        e.__traceback__.tb_frame.f_globals["__file__"], # 位置
+        e.__traceback__.tb_lineno,  # 行
+        '========= \ ==========='
     ]
-
-    
     return 异常
 
 

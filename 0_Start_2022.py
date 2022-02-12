@@ -1,23 +1,43 @@
 
 
 
-'''
+
+# -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
+
+# import ATWTxtAndList    # List get txt 
+#import ATWSteChrome
+#import ATWFolder
+import ATWError
+import ATW2022
+#import ATW_OUT
+#import ATWREADME
+import ATWLanguage  # 翻譯 
+
+
+
+
+###################################################################################
+############################################################# 0_Start_2022 說明
+def README(): 
+    ThisREADME = '''
 win py3
             _\|/_
             (o o)
     +----oOO-{_}-OOo--------------------------+
     |                                         |
     |                                         |
-    |        202202121653                     |
+    |        202202122151                     |
     |        this for start ATW2022.py        |
     |         ------------------------        |
     |         ------------------------        |
     |        202202112232                     |
     |        ATW2022.py                       |
-    |        轉少少引用                        |
+    |        轉少少引用                       |
     |         ------------------------        |
     |        AutoWeb 202108031646 GODMOD      |
-    |        完全修改唔到                      |
+    |        完全修改唔到                     |
     |         ------------------------        |
     |        mokaki                           |
     |        https://98672794.github.io/      |
@@ -41,85 +61,41 @@ Now job
 
 ##################################### Fun MAP
 Import
-Data
-InputData()
-    _AutoWebLanguageSetting()
-    _SetFolder()
-    _LoginATW()
-    if 自動搵客.py:
-        _AutoWWebSales()
-    else:
-        _index() admin
-            if 0:
-                _AutoWebKeySetting()    修改您的資料
-            if 1:   qqqqqq 隱
-                _AutoImportinputData()  自动安装所需的Python依赖包
-            if 2:
-                00000()             自動下載 MoBanWang 網頁模板
-            if 3:
-                _AutoWWebSales()    自動搵客
-            if 4: qqqqqq 隱
-                _InputChromeAutoUpData()    自动下載最新chromedriver
-            if 5: qqqqqqqqqqq
-                _VIPUser()      開始自动生成VIP驗證碼
-    _MakeTalk()     製talk
+README()
+Start2022()
+    ATW2022.InputData()
+    _index(,)
+        0
+            ATWLanguage._AutoWeb翻譯功能()
+            ATW2022._AutoWebKeySetting()
+        3
+            ATW2022._AutoWWebSales()
 
-
-
-
+            
 
 '''
-# -*- coding: UTF-8 -*-
-#!/usr/bin/python
-
-
-# import ATWTxtAndList    # List get txt 
-#import ATWSteChrome
-#import ATWFolder
-import ATWError
-import ATW2022
-#import ATW_OUT
-import ATWREADME
-import ATWLanguage  # 翻譯 
-
-
-
-
-###################################################################################
-############################################################# 0_Start_2022 說明
-def README(): 
-    ThisREADME = [
-        '*** 0_Start_2022.README ***', # PYfileName
-        'Start() =\n        整緊',
-        '000 =\n        000(000)',
-        '000 =\n        000(000)',
-        ' ==== 恭賀新禧 ==== ',
-        'mokaki202202051218',
-        'https://98672794.github.io/'
-
-    ]
-
-    ATWREADME._READYourME(ThisREADME)
+    print(ThisREADME)
 
 
 
 
 #######################################################################
 ##################################################### Start = 開始 分頁0
-#密匙檔路徑 = inATW2022 #202202051729
 def Start2022():
+    
+    # ATW文件夾位置
+    #KeyFolder2 = input('if you need make KeyFolder . pls inp FolderName')
+    
+    KeyFolder2 = input('AutoWeb 2022 歡迎您 pls enter ')
+    if not KeyFolder2:  # 入空值
+        KeyFolderName = '_atw'  #   _atw/0.atw 密匙檔路徑
+    else:
+        KeyFolderName = KeyFolder2
+
     try:
-        print('0_Start_2022=202202121828')
-
-        # to index
-        _index(ATW2022.InputData()[0],ATW2022.InputData()[1])
-        RunIndexOK = ATW2022.InputData()
-        print(RunIndexOK)
-        print('qqqqqqq/qqqqqqqqqq')
-
-
-
-        NowKO = 'Start() Run  = OK'
+        #print('0_Start_2022=202202121828')
+        d = ATW2022._2022_ATW_0_Start_2022ToATW2022InputData(KeyFolderName)
+        _index(d[0],d[1])
     except Exception as e:
         for 异常 in ATWError._Error(e):
             print(异常)
@@ -277,8 +253,9 @@ def _index(v1,BassLan):
 
 if __name__ == "__main__":
     while True: # Start loop for all
+        #README()
         print(Start2022())  
-        ATWREADME.os.system("pause")
+        #ATW2022.os.system("pause")
         continue    # 回 Start loop
 
 
