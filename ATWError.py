@@ -15,6 +15,7 @@ https://98672794.github.io/
 # -*- coding: UTF-8 -*-
 
 import ATWREADME
+import ATWLanguage
 from copy import Error
 
 
@@ -29,7 +30,18 @@ def README():
         '发生异常所在的文件行数 =\n         _Error(e)',
         ' ==== 恭賀新禧 ==== ',
         'mokaki202202051218',
-        'https://98672794.github.io/'
+        'https://98672794.github.io/',
+        ' ********* 用 *********** ',
+
+    '   except Exception as e:                 \n',
+    '       for 异常 in ATWError._Error(e):    \n',
+    '           print(异常)                    \n',
+    '       NowKO = "Start() Run  = Error"     \n',
+    '   # /                                    \n',
+    '   return NowKO                           \n',
+
+
+        ' ********* / 用 *********** '
     ]
 
     ATWREADME._READYourME(ThisREADME)
@@ -47,14 +59,18 @@ def README():
 
 
 def _Error(e):
-    #print(e)
-    #print(e.__traceback__.tb_frame.f_globals["__file__"])   # 发生异常所在的文件
-    #print(e.__traceback__.tb_lineno)                        # 发生异常所在的行数
 
-    异常 = 'Error***'
-    + (e.__traceback__.tb_frame.f_globals["__file__"])   # 发生异常所在的文件
-    +(e.__traceback__.tb_lineno)                        # 发生异常所在的行数
-    +'***'
+    # 翻譯
+    #t1 = ATWLanguage._AutoWeb翻譯功能(e,'zh')    ## zh-Hant
+    异常 = [
+        'Error=',
+        e,      # t1
+        '\nin=',
+        e.__traceback__.tb_frame.f_globals["__file__"],
+        e.__traceback__.tb_lineno,
+        '\n'
+    ]
+
     
     return 异常
 

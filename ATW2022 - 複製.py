@@ -108,8 +108,7 @@ import copy
 import arrow
 from deep_translator import (GoogleTranslator,PonsTranslator,LingueeTranslator,MyMemoryTranslator,YandexTranslator,DeepL,QCRI,single_detection,batch_detection)
 
-# ATW2022
-import ATWLanguage  # 翻譯 
+
 
 
 
@@ -187,7 +186,7 @@ KeyFolder = '_atw'
 KeyUrl = KeyFolder + '/0.atw'  #AutoWeb/0.atw
 def InputData():  # InputData(密匙檔路徑2022)
     global KeyFolder
-    global UserLanguage
+
     # 0Start2022 
     #KeyFolder = 密匙檔路徑2022
 
@@ -202,10 +201,7 @@ def InputData():  # InputData(密匙檔路徑2022)
 
     # 新用戶修改語言
     if UserKey == '0':
-        #_AutoWebLanguageSetting(0)
-        # ATW2022
-        # 新言 = 目標語言
-        UserLanguage = ATWLanguage._AutoWebChangeLanguage('zh-Hant') 
+        _AutoWebLanguageSetting(0)
     else:
         if len(UserKey) < 8:
             _AutoWebLanguageSetting(talk11)
@@ -233,8 +229,8 @@ def InputData():  # InputData(密匙檔路徑2022)
             _index(UnLockData)
 
 
-    # ATW2022
-    return UnLockData, UserLanguage
+    # ATW 2022
+    return UnLockData
     # Exp: to index
     # ATW2022._index(ATW2022.InputData())
 
@@ -620,11 +616,9 @@ def _AutoWebLanguageSetting(uk):
 
 
 
-# 翻譯功能 0_Start_2022 to ATW2022 ##########################################################################
-def _2022_ATW_0_Start_2022ToATW2022bLanguageSetting(新言): 
-    global UserLanguage
-    UserLanguage = 新言
-    return 
+
+
+
 
 
 
