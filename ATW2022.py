@@ -466,6 +466,7 @@ def _MakeTalk():
 #################################################################### 修改您的資料 #
 def _AutoWebKeySetting(ATWKeyName,ATWKeyVlo,UserKey): 
 
+    print ('2022_AutoWebKeySetting')
     _MakeTalk()
 
     # 取 ALL Data
@@ -520,28 +521,28 @@ def _AutoWebKeySetting(ATWKeyName,ATWKeyVlo,UserKey):
                 NewVlo = input(Talk0+ATW_LS96[0]+_AutoWWebSettingTalk6+ATW_LS96[1]+_AutoWWebSettingTalk7d+ATW_LS96[2]+ATW_LS96[4]+_AutoWWebSettingTalk8a+ATW_LS96[5]+_AutoWWebSettingTalk15b+_AutoWWebSettingTalk15c+AllTalk0)
 
 
-            elif AutoWWebSettingInput == 'ATWFbPostkeyword1':      # 修改fb尋帖 1級關鍵字
+            if AutoWWebSettingInput == 'ATWFbPostkeyword1':      # 修改fb尋帖 1級關鍵字
                 NewVlo = input(AllTalk0+ATW_LS96[6]+ATW_LS96[7]+ATW_LS96[1]+_AutoWWebSettingTalk7d+ATW_LS96[2]+ATW_LS96[5]+_AutoWWebSettingTalk15b+_AutoWWebSettingTalk15c+AllTalk0)
 
 
-            elif AutoWWebSettingInput == 'ATWFbPostkeyword2':      # 修改fb尋帖 1級關鍵字
+            if AutoWWebSettingInput == 'ATWFbPostkeyword2':      # 修改fb尋帖 1級關鍵字
                 NewVlo = input(AllTalk0+ATW_LS96[8]+ATW_LS96[9]+ATW_LS96[1]+_AutoWWebSettingTalk7d+ATW_LS96[2]+ATW_LS96[5]+_AutoWWebSettingTalk15b+_AutoWWebSettingTalk15c+AllTalk0)
 
 
-            elif AutoWWebSettingInput == 'ATWFbPostNoKeyword':      # 修改fb尋帖 負關鍵字
+            if AutoWWebSettingInput == 'ATWFbPostNoKeyword':      # 修改fb尋帖 負關鍵字
                 NewVlo = input(AllTalk0+ATW_LS96[10]+ATW_LS96[11]+ATW_LS96[1]+_AutoWWebSettingTalk7d+ATW_LS96[2]+ATW_LS96[5]+_AutoWWebSettingTalk15b+_AutoWWebSettingTalk15c+AllTalk0)
             
 
-
-            elif AutoWWebSettingInput == 'ATWListTime':      # 修改fb尋帖 最後日期
+            if AutoWWebSettingInput == 'ATWListTime':      # 修改fb尋帖 最後日期
                 NewVlo = input(AllTalk0+ATW_LS96[13]+AllTalk0)
                 # 刪除 NewVlo 不能出現的字付
                 _AutoWebKeySettingDelTxt(AutoWWebSettingInput,NewVlo)
                 NewVlo = NewVlo000
 
-
-
-
+            else:
+                Say0 = '請填寫[  ///  ]的值。如有多項請用 , 分隔。///'
+                haha = Say0.split('///') 
+                NewVlo = input(AllTalk0+haha[0]+AutoWWebSettingInput+haha[1]+AllTalk0)
 
             # 不能空值
             if NewVlo == '':
@@ -555,6 +556,12 @@ def _AutoWebKeySetting(ATWKeyName,ATWKeyVlo,UserKey):
         _AutoWebKeySettingDelTxt(AutoWWebSettingInput,NewVlo)
         NewVlo = NewVlo000
 
+        # 刪除,在前 2022
+        while True:
+            if NewVlo[0] == ',':
+                NewVlo = NewVlo[1:]
+                continue
+            break
 
 
         # 刪除原項 如有
