@@ -222,13 +222,12 @@ def _indexIs1(v1,BassLan):
 
     # 檢查 創 ATW User Key
     UserKeDemo = 自動覆客_OK2022._2022_AutoWhatsappReplyTextListKeyDemo
-    UKS2 = _GetAllUserKey(v1,BassLan,'WhatsappAutoReplyTextList',UserKeDemo)
-    
+
     # 1 ATW Login wts
     自動覆客_OK2022.AdminLoginWTS()
     
     # 2 ATW 等客Loop
-    自動覆客_OK2022._2022startToLoop(UKS2)
+    自動覆客_OK2022._2022startToLoop(_GetAllUserKey(v1,BassLan,'WhatsappAutoReplyTextList',UserKeDemo))
 
     print('------------ / 不再回來 ------------------\n') 
 
@@ -288,7 +287,7 @@ def _indexIs3(v1,BassLan):
 ###################################################################################
 #################################################################### _ATWLogin
 
-
+# 2022 auto add new yal
 # 檢查 ATW User Key 在否
 def _GetAllUserKey(v1,BassLan,keyname,UserKeDemo): 
 
@@ -306,7 +305,6 @@ def _GetAllUserKey(v1,BassLan,keyname,UserKeDemo):
     dot = '\n********** User Key Demo ************\n'
     
     keynameBB = keyname + '-@='     # 合 keyname
-
 
     # 各 keyname 不同說明
     if keyname == 'WhatsappAutoReplyTextList':
