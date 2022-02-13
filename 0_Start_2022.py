@@ -142,7 +142,7 @@ def Start2022():
 
 
 
-
+###################################################################################
 #################################################################### _index 選擇功能
 
 
@@ -220,21 +220,25 @@ def _indexIs0(v1,BassLan):
 def _indexIs1(v1,BassLan): 
     print(ATWLanguage._AutoWeb翻譯功能('whatsapp自動客服機器人',BassLan))
 
-    # 檢查 ATW User Key
-    e2e1e = _GetAllUserKey(v1,BassLan,'肛門')
-    print('------------ qqqqqqqqqqqqq')
-    print('-e2e1e=',e2e1e)
-    ATW2022._OUT
+    # 檢查 創 ATW User Key
+    UserKeDemo = 自動覆客_OK2022._2022_AutoWhatsappReplyTextListKeyDemo
+    UKS2 = _GetAllUserKey(v1,BassLan,'WhatsappAutoReplyTextList',UserKeDemo)
+    
+    # 1 ATW Login wts
+    自動覆客_OK2022.AdminLoginWTS()
+    
+    # 2 ATW 等客Loop
+    自動覆客_OK2022._2022startToLoop(UKS2)
+
+    print('------------ / 不再回來 ------------------\n') 
 
 
-    OK = 自動覆客_OK2022.RunThisPY()   
-    print('------------ / 奉奉奉qqqqqqqqqq whatsapp自動客服機器人 ------------------\n') 
 
 # 自動下載 MoBanWang 網頁模板
 def _indexIs2(BassLan,KeyFolderName): 
     print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板',BassLan))
     OK = ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022(KeyFolderName)   
-    print('------------ 模板',OK,'已自動下載完成 ------------------\n') 
+    print('------------ /模板',OK,'已自動下載完成 ------------------\n') 
 
 
 # 自動搵客，自動獲取FACEBOOK公開群的相關廣告資料
@@ -245,7 +249,7 @@ def _indexIs3(v1,BassLan):
     #UserKey = getpass(prompt=talk2+talk1+talk7)
     Loop_AutoWWebSales = 0
     ATW2022._AutoWWebSales(v1)  
-    print('------------ / 自動搵客2022 ------------------\n')  
+    print('------------ /自動搵客2022 ------------------\n')  
     
 
 
@@ -253,30 +257,79 @@ def _indexIs3(v1,BassLan):
 
 
 
-# 檢查 ATW User Key 在否
-def _GetAllUserKey(v1,BassLan,keyname): 
 
-    Say = '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###################################################################################
+#################################################################### _ATWLogin
+
+
+# 檢查 ATW User Key 在否
+def _GetAllUserKey(v1,BassLan,keyname,UserKeDemo): 
+
+    Say0 = '''
     請填寫您的///
     如有多項請用 , 分隔。///
     '''
-    Say99 = (ATWLanguage._AutoWeb翻譯功能(Say,BassLan)).split('///') 
+
+    Say_WhatsappAutoReplyTextList = '''
+    請填寫您的///
+    Whatsapp自動回覆信息內容///
+    請用 ',' 分開每項 和 用 @@ 代替換行///
+    '''
+
+    dot = '\n********** User Key Demo ************\n'
+    
     keynameBB = keyname + '-@='     # 合 keyname
+
+
+    # 各 keyname 不同說明
+    if keyname == 'WhatsappAutoReplyTextList':
+        Say = Say_WhatsappAutoReplyTextList
+        Say99 = (ATWLanguage._AutoWeb翻譯功能(Say,BassLan)).split('///') 
+        tk2 = Say99[0]+Say99[1]+Say99[2]
+    else:
+        Say = Say0
+        Say99 = (ATWLanguage._AutoWeb翻譯功能(Say,BassLan)).split('///') 
+        tk2 = Say99[0]+keyname+Say99[1]
 
     while True: 
         ATW2022._LoginATW(keynameBB,v1) # 取 UnLockData
         if ATW2022.UnLockData == '沒有NODATA內容':
             # go to set
-            NewKeyVal = input(Say99[0]+keyname+Say99[1])
+            NewKeyVal = input(dot+UserKeDemo+dot+tk2)
             # del " '
-            NewKeyVal = NewKeyVal.replace("'", "").replace('"', '')
+            NewKeyVal = NewKeyVal.replace("'", "").replace('"', '').replace(' ', '')
             ATW2022._AutoWebKeySetting(keynameBB,NewKeyVal,v1)
             continue
         break
     
     return ATW2022.UnLockData
-
-
 
 
 

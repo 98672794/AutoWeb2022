@@ -180,37 +180,8 @@ from types import CodeType
 import threading
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 2022
+import ATWError
 
 
 
@@ -225,18 +196,121 @@ UrlName='https://web.whatsapp.com/'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+###########################################
+#################### 2022 等客Loop 202202131245  
+_2022startBtn = 0
+def _2022startToLoop(UK_0_Start_2022):
+    global _2022startBtn
+    _2022startBtn = UK_0_Start_2022
+    _LoopForGetUser()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 AdminSetBtn=0#True
 def RunThisPY():  
-    # admin
-    if AdminSetBtn == 0:
-    #    Test()
-    #else:
-        # 正常
-        AdminLoginWTS()
-    ATW2022._OUT
-
-
-
+    try:
+        # admin
+        if AdminSetBtn == 0:
+        #    Test()
+        #else:
+            owKO = 'RunThisPY  = KO'
+            # 正常
+            AdminLoginWTS()
+            # 回等客Loop
+            _LoopForGetUser()
+        ATW2022._OUT
+    except Exception as e:
+        for 异常 in ATWError._Error(e):
+            print(异常)
+        NowKO = 'RunThisPY  = Error'
+    # /
+    return NowKO
 
 
 
@@ -267,6 +341,87 @@ def Test():
     ATWSteChrome.chrome2.get(uuu)
     tt54t = ATWSteChrome.chrome2.find_element_by_xpath(eqe).text
     print('chrome,',tt54t)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,18 +463,9 @@ def AdminLoginWTS():
     # F5
     ATWSteChrome.chrome.refresh()
 
-    if __name__=='__main__':
 
 
-        # 睇錯 202111272338 
-        while True:
-            try:
-                # 回等客Loop
-                _LoopForGetUser()
-            except Exception as e:
-                _Error(e)
-                continue
-        
+
 
 
 
@@ -357,8 +503,15 @@ def _LoopForGetUser():
 
     print('*** 2_LoopForGetUser *** ')
 
-    # 生成 admin指令 #############
-    ATAllOK=_MakeAdminTxt()
+    # 2022 生成 ReplyTextListKey 指令 #############
+    if _2022startBtn != 0:  
+        # _2022start To Loop
+        ATAllOK = _2022startBtn
+        print('*** qqqqqqq_2022startToLoop OK22222222 *** ')
+    else:   # other run to 
+        ATAllOK=_MakeAdminTxt() # 入空值
+        print('*** qqqqqqqqq_2022startToLoop 入空值 *** ')
+
     AdminTxtOK=[]
     i = 0
     try:
@@ -1106,6 +1259,8 @@ LockThis = threading.Lock()
 #   2B              _ALL_Reply                        客戶wts我 AI回覆     202109122207
 def _ALL_Reply(UKey,UKey0,chromeSel994):
     print('*** 2B _ALL_Reply *** ',chromeSel994)
+    # QQQQQQQQQQQQQQQQQ 2022
+
     #  鎖定
     LockThis.acquire()
 
@@ -1344,7 +1499,7 @@ def _MakeAdminTxt():
 
 
     AT1 = "ai.,. ',' ws仔 :@@Auto reply whatsapp 自動覆客機器人@@"                                                                                            
-    AT2 = "    歡迎您@@"                                                                                            
+    AT2 = "    歡迎0000002022000000000您@@"                                                                                            
     AT3 = "    @@"                                                                                            
     AT4 = "    您好!我係聊天機器人ws仔 ',' @@"                                                                                            
     AT5 = "    使您解放雙手! 毋須再條條回覆whatsapp訊息!@@"                                                                                            
@@ -1431,7 +1586,7 @@ def _MakeAdminTxt():
     AT148 = "    https://wa.me/85255258378?text=ai@@"                                                                                            
     AT149 = ".,."                                                                                            
 
-    AT150 = "0aki.,.10秒後自爆.,."  
+    AT150 = "0aki.,.10秒後自爆 _MakeAdminTxt.,."  
 
 
     # ReplyKeyList 轉換1
@@ -1492,8 +1647,8 @@ def _MakeAdminTxt():
 
 
 
-
-'''     自動覆客機器人  ReplyKeyList
+# 2022 自動覆客機器人  ReplyKeyList
+_2022_AutoWhatsappReplyTextListKeyDemo = '''
 
 
 ai.,.Auto reply whatsapp 自動覆客機器人@@
@@ -1595,7 +1750,7 @@ whatsapp API@@
     https://wa.me/85255258378?text=ai@@
 .,.
 
-0aki.,.10秒後自爆
+0aki.,.10秒後自爆2022
 
 
 
@@ -1902,625 +2057,6 @@ def _Error回_LoopForGetUser(t):
 # 執行本.py
 if __name__=='__main__':
     RunThisPY()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
