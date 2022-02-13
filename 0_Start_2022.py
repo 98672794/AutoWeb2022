@@ -15,7 +15,7 @@ import ATW2022
 #import ATWREADME
 import ATWLanguage  # 翻譯 
 import ATW自動下載模板2022  # 自動下載 MoBanWang 網頁模板 
-
+import 自動覆客_OK2022  # whatsapp自動客服機器人
 
 
 ###################################################################################
@@ -64,10 +64,15 @@ Import
 README()
 Start2022()
     ATW2022.InputData()
-    _index(,)
+    _index(,,)
         0
             ATWLanguage._AutoWeb翻譯功能()
             ATW2022._AutoWebKeySetting()
+        1
+
+        2
+            ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022()   
+
         3
             ATW2022._AutoWWebSales()
 
@@ -95,7 +100,7 @@ def Start2022():
     try:
         #print('0_Start_2022=202202121828')
         d = ATW2022._2022_ATW_0_Start_2022ToATW2022InputData(KeyFolderName)
-        _index(d[0],d[1],KeyFolderName)
+        NowKO = _index(d[0],d[1],KeyFolderName)
     except Exception as e:
         for 异常 in ATWError._Error(e):
             print(异常)
@@ -148,75 +153,128 @@ def _index(v1,BassLan,KeyFolderName):
     #global Loop_AutoWWebSales
     #BassLan = 'zh-Hant'
 
-    Talk = '''
-        ****************
-    AutoWe index 歡迎您 
-    請選擇功能
+        Talk = '''
+            ****************
+        AutoWe index 歡迎您 
+        請選擇功能
 
-    0 ====== Auto Setting \n       修改您的資料
-        ===
-    2 ====== Auto WebPage template\n       自動下載mobanwang網頁模板
-    3 ====== Auto Get Job 2021 \n       自動獲取FACEBOOK公開群的相關廣告資料
-        ===
-        /****************
-    '''
+        0 ====== Auto Setting \n       修改您的資料
+        1 ====== Auto reply whatsapp\n       whatsapp自動客服機器人
+        2 ====== Auto WebPage template\n       自動下載mobanwang網頁模板
+        3 ====== Auto Get Job 2021 \n       自動獲取FACEBOOK公開群的相關廣告資料
 
+        '''
+    
+        NowKO = 'Start() _index2022  = ok'
+        while True: # 歡迎您
+            # Goto Fun sel
+            try:
+                Goto = int(input(ATWLanguage._AutoWeb翻譯功能(Talk,BassLan)))
+            except:
+                print(ATWLanguage._AutoWeb翻譯功能('只可填寫數字',BassLan))
+                continue
+
+            if Goto == 0:   # 修改
+                _indexIs0(v1,BassLan)
+            if Goto == 1:   # whatsapp自動客服機器人
+                _indexIs1(v1,BassLan)
+            if Goto == 2:   # 自動下載 MoBanWang 網頁模板
+                _indexIs2(BassLan,KeyFolderName)
+            if Goto == 3:   # 自動搵客，自動獲取FACEBOOK公開群的相關廣告資料
+                _indexIs3(v1,BassLan)
+            continue    # 回歡迎您
+        
+
+
+
+
+
+
+
+# if0=修改
+def _indexIs0(v1,BassLan): 
     while True:
-        # 歡迎您
-
-        # Goto Fun
+        print(ATWLanguage._AutoWeb翻譯功能('修改您的資料',BassLan))
         try:
-            Goto = int(input(ATWLanguage._AutoWeb翻譯功能(Talk,BassLan)))
+            Talk2 = '\n   請問您要修改?\n   0 === 語言\n   1 === 您的存檔\n\n'
+            sel_AutoWebSetting = int(input(ATWLanguage._AutoWeb翻譯功能(Talk2,BassLan)))
         except:
             print(ATWLanguage._AutoWeb翻譯功能('只可填寫數字',BassLan))
             continue
 
-        if Goto == 0:   # if0=修改
-            while True:
-                print(ATWLanguage._AutoWeb翻譯功能('修改您的資料',BassLan))
-                try:
-                    Talk2 = '\n   請問您要修改?\n   0 === 語言\n   1 === 您的存檔\n\n'
-                    sel_AutoWebSetting = int(input(ATWLanguage._AutoWeb翻譯功能(Talk2,BassLan)))
-                except:
-                    print(ATWLanguage._AutoWeb翻譯功能('只可填寫數字',BassLan))
-                    continue
+        if sel_AutoWebSetting == 0:
+            # 0 = 新用戶修改語言
+            新言 = ATWLanguage._AutoWebChangeLanguage(BassLan)   # 新言 = 目標語言
+            BassLan = 新言
+            # Start 轉 ATW2022 Language
+            print(ATW2022._2022_ATW_0_Start_2022ToATW2022bLanguageSetting(BassLan))
+            break
 
-                if sel_AutoWebSetting == 0:
-                    # 0 = 新用戶修改語言
-                    新言 = ATWLanguage._AutoWebChangeLanguage(BassLan)   # 新言 = 目標語言
-                    BassLan = 新言
-                    # Start 轉 ATW2022 Language
-                    print(ATW2022._2022_ATW_0_Start_2022ToATW2022bLanguageSetting(BassLan))
-                    break
+        if sel_AutoWebSetting == 1:
+            ATW2022._AutoWebKeySetting('','',v1)
+        else:
+            continue    # not 0 1 re
+        break   # 出if0=修改
 
-                if sel_AutoWebSetting == 1:
-                    ATW2022._AutoWebKeySetting('','',v1)    #奉qqqqqqqqqqqqqqqqqqqq
-                else:
-                    continue    # not 0 1 re
-                break   # 出if0=修改
+# whatsapp自動客服機器人
+def _indexIs1(v1,BassLan): 
+    print(ATWLanguage._AutoWeb翻譯功能('whatsapp自動客服機器人',BassLan))
 
-        if Goto == 1:
-            print('1on val 2131')
-            continue
+    # 檢查 ATW User Key
+    e2e1e = _GetAllUserKey(v1,BassLan,'肛門')
+    print('------------ qqqqqqqqqqqqq')
+    print('-e2e1e=',e2e1e)
+    ATW2022._OUT
 
-        if Goto == 2:
-            #自動下載 MoBanWang 網頁模板
-            print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板',BassLan))
-            OK = ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022(KeyFolderName)   
-            print('------------ 模板',OK,'已自動下載完成 ------------------\n') 
 
-        if Goto == 3:
-            # AutoWeb Auto Get Job
-            print('qqqqqqqqqqq')
-            print(ATWLanguage._AutoWeb翻譯功能('自動搵客，自動獲取FACEBOOK公開群的相關廣告資料',BassLan))
-            # 驗證登入
-            #UserKey = getpass(prompt=talk2+talk1+talk7)
-            Loop_AutoWWebSales = 0
-            ATW2022._AutoWWebSales(v1)  
-            print('------------ / 自動搵客2022 ------------------\n')  
+    OK = 自動覆客_OK2022.RunThisPY()   
+    print('------------ / 奉奉奉qqqqqqqqqq whatsapp自動客服機器人 ------------------\n') 
+
+# 自動下載 MoBanWang 網頁模板
+def _indexIs2(BassLan,KeyFolderName): 
+    print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板',BassLan))
+    OK = ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022(KeyFolderName)   
+    print('------------ 模板',OK,'已自動下載完成 ------------------\n') 
+
+
+# 自動搵客，自動獲取FACEBOOK公開群的相關廣告資料
+def _indexIs3(v1,BassLan): 
+    # AutoWeb Auto Get Job
+    print(ATWLanguage._AutoWeb翻譯功能('自動搵客，自動獲取FACEBOOK公開群的相關廣告資料',BassLan))
+    # 驗證登入
+    #UserKey = getpass(prompt=talk2+talk1+talk7)
+    Loop_AutoWWebSales = 0
+    ATW2022._AutoWWebSales(v1)  
+    print('------------ / 自動搵客2022 ------------------\n')  
     
-        continue    # 回歡迎您
 
+
+
+
+
+
+# 檢查 ATW User Key 在否
+def _GetAllUserKey(v1,BassLan,keyname): 
+
+    Say = '''
+    請填寫您的///
+    如有多項請用 , 分隔。///
+    '''
+    Say99 = (ATWLanguage._AutoWeb翻譯功能(Say,BassLan)).split('///') 
+    keynameBB = keyname + '-@='     # 合 keyname
+
+    while True: 
+        ATW2022._LoginATW(keynameBB,v1) # 取 UnLockData
+        if ATW2022.UnLockData == '沒有NODATA內容':
+            # go to set
+            NewKeyVal = input(Say99[0]+keyname+Say99[1])
+            # del " '
+            NewKeyVal = NewKeyVal.replace("'", "").replace('"', '')
+            ATW2022._AutoWebKeySetting(keynameBB,NewKeyVal,v1)
+            continue
+        break
+    
+    return ATW2022.UnLockData
 
 
 
