@@ -213,7 +213,7 @@ UrlName='https://web.whatsapp.com/'
 _2022startBtn = 0
 def _2022startToLoop(UK_0_Start_2022):
     global _2022startBtn
-    _2022startBtn = UK_0_Start_2022
+    _2022startBtn = UK_0_Start_2022.split('.,.') 
     _LoopForGetUser()
 
 
