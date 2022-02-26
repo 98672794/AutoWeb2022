@@ -16,7 +16,7 @@ import ATW2022
 import ATWLanguage  # 翻譯 
 import ATW自動下載模板2022  # 自動下載 MoBanWang 網頁模板 
 import 自動覆客_OK2022  # whatsapp自動客服機器人
-
+import ATWpy_exe    # 202202270012
 
 ###################################################################################
 ############################################################# 0_Start_2022 說明
@@ -163,16 +163,14 @@ def _index(v1,BassLan,KeyFolderName):
         2 ====== Auto WebPage template\n       自動下載mobanwang網頁模板
         3 ====== Auto Get Job 2021 \n       自動獲取FACEBOOK公開群的相關廣告資料
 
+        exe ====== MakeExe \n       將 Python.py 封裝exe 
         '''
     
         NowKO = 'Start() _index2022  = ok'
         while True: # 歡迎您
             # Goto Fun sel
-            try:
-                Goto = int(input(ATWLanguage._AutoWeb翻譯功能(Talk,BassLan)))
-            except:
-                print(ATWLanguage._AutoWeb翻譯功能('只可填寫數字',BassLan))
-                continue
+            Goto = input(ATWLanguage._AutoWeb翻譯功能(Talk,BassLan))
+
 
             if Goto == 0:   # 修改
                 _indexIs0(v1,BassLan)
@@ -182,8 +180,15 @@ def _index(v1,BassLan,KeyFolderName):
                 _indexIs2(BassLan,KeyFolderName)
             if Goto == 3:   # 自動搵客，自動獲取FACEBOOK公開群的相關廣告資料
                 _indexIs3(v1,BassLan)
+
+            if Goto == 'exe':   # 將 Python.py 封裝exe 
+                ATWpy_exe.MakeExe()
+
             continue    # 回歡迎您
         
+
+
+
 
 
 
@@ -216,6 +221,19 @@ def _indexIs0(v1,BassLan):
             continue    # not 0 1 re
         break   # 出if0=修改
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 # whatsapp自動客服機器人
 def _indexIs1(v1,BassLan): 
     print(ATWLanguage._AutoWeb翻譯功能('whatsapp自動客服機器人',BassLan))
@@ -233,11 +251,32 @@ def _indexIs1(v1,BassLan):
 
 
 
+
+
+
+
+
+
+
+
 # 自動下載 MoBanWang 網頁模板
 def _indexIs2(BassLan,KeyFolderName): 
     print(ATWLanguage._AutoWeb翻譯功能('自動下載 MoBanWang 網頁模板',BassLan))
     OK = ATW自動下載模板2022._2022_ATW_0_Start_2022ToATW自動下載模板2022(KeyFolderName)   
     print('------------ /模板',OK,'已自動下載完成 ------------------\n') 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 自動搵客，自動獲取FACEBOOK公開群的相關廣告資料
